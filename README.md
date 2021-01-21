@@ -1,4 +1,4 @@
-![Image](https://github.com/marterix/Flatly/blob/main/frontend/src/assets/images/flatly.svg?raw=true)
+![Image](https://github.com/marterix/Flatly/blob/main/frontend/src/assets/images/logo.png?raw=true)
 
 ### Setup
 - `npm install`
