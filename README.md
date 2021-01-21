@@ -1,4 +1,4 @@
-# HomeApp 
+![Image](https://github.com/marterix/Flatly/blob/main/frontend/src/assets/images/flatly.svg?raw=true)
 
 ### Setup
 - `npm install`
@@ -6,5 +6,5 @@
 
 Start! 💻
 
-![Image](https://github.com/marterix/homeapp/blob/master/frontend/src/assets/images/mockuper.png?raw=true)
+![Image](https://github.com/marterix/Flatly/blob/main/frontend/src/assets/images/mockuper.png?raw=true&s=50)
 
