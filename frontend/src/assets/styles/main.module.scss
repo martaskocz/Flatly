@@ -1,0 +1,23 @@
+@import 'colors.module';
+@import 'typography.module';
+
+:global {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    font-size: 62.5%; // 1rem = 10px, standard 1 rem = 16px
+  }
+
+  body {
+    font-size: 1.6rem;
+    font-family: "Quicksand", sans-serif;
+    position: relative;
+    padding-top: 19vh;
+    //background-color: $grey100;
+  }
+}

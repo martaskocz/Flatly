@@ -1,0 +1,13 @@
+@import 'src/assets/styles/main.module';
+
+.wrapper {
+  border: solid 2px $mainDarkBlue;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  color: $mainDarkBlue;
+}
+
+.icon {
+  padding-top: 0.3rem;
+}
