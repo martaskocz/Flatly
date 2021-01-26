@@ -12,9 +12,9 @@ const Header = () => {
     <header className={styles.wrapper}>
       <div className={styles.wrapperLogoDesc}>
         <Logo to="/"/>
-        <Paragraph size="m" margin="top">pierwszy dedykowany portal nieruchomości za granicą</Paragraph>
+        <Paragraph margin="top" size="m" >zamieszkaj w dowolnym miejscu na świecie</Paragraph>
       </div>
-      <Paragraph size="m"><IoHeartOutline size="2.5rem" color="#00C2CB"/> Ulubione</Paragraph>
+      <Paragraph size="m"><IoHeartOutline color="#00C2CB" size="2.5rem"/> Ulubione</Paragraph>
       <div>
         <IconContext.Provider value={{ color: "#4C627B", size: "2.5rem", style: { margin: "1rem"} }}>
           <FaFacebookSquare/>

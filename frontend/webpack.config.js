@@ -5,7 +5,8 @@ const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, "build")
+    path: path.resolve(__dirname, "build"),
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -47,6 +48,8 @@ module.exports = {
         { from: "src/assets/images", to: "assets" }
       ],
     }),
-  ]
-
+  ],
+  devServer: {
+    historyApiFallback: true,
+  },
 };

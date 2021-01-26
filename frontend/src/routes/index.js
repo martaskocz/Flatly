@@ -1,3 +1,7 @@
 export const routes = {
-  root: '/'
+  root: '/',
+  italy: "/italy",
+  spain: "/spain",
+  portugal: '/portugal',
+  croatia: '/croatia'
 };

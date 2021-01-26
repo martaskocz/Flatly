@@ -1,24 +1,27 @@
 import React from 'react';
-import Paragraph from '../../atoms/Paragraph/Paragraph';
 import { BiBed } from 'react-icons/bi';
 import { BsHouseDoor } from 'react-icons/bs';
 import { IoPricetagsOutline, IoHeartOutline } from 'react-icons/io5';
+import Paragraph from '../../atoms/Paragraph/Paragraph';
 import styles from './FlatCard.module.scss';
 
-const FlatCard = ({propertyType, price, areaLiving, rooms, country, city, image}) => {
+const FlatCard = ({propertyType, price, areaLiving, rooms, countryPL, city, image}) => {
+
+  const priceTag = price.toLocaleString();
+
   return(
     <div className={styles.wrapper}>
       <img alt="flat" src={image}/>
-      <IoHeartOutline size="2.5rem" color="#00C2CB"/>
+      <IoHeartOutline color="#00C2CB" size="2.5rem" />
       <div className={styles.content}>
         <div>
           <Paragraph>{propertyType}</Paragraph>
-          <Paragraph>{country}, {city}</Paragraph>
-          <Paragraph size="l" margin="top"><IoPricetagsOutline/>  {price}</Paragraph>
+          <Paragraph size="s">{countryPL}, {city}</Paragraph>
+          <Paragraph margin="top" size="l"><IoPricetagsOutline/>  {priceTag} zł</Paragraph>
         </div>
         <div>
-          <Paragraph><BsHouseDoor/>  {areaLiving}</Paragraph>
-          <Paragraph><BiBed/>  {rooms} pokoje</Paragraph>
+          <Paragraph size="s"><BsHouseDoor/>  {areaLiving} m2</Paragraph>
+          <Paragraph size="s"><BiBed/>  {rooms} pokoje</Paragraph>
         </div>
       </div>
 

@@ -6,8 +6,19 @@
   padding: 0.5rem 1rem;
   margin-right: 1rem;
   color: $mainDarkBlue;
+  outline: none;
+  background-color: $white;
+  text-decoration: none;
+
+  .icon {
+    padding-top: 0.3rem;
+  }
+
+  .text {
+  }
 }
 
-.icon {
-  padding-top: 0.3rem;
+.active {
+  background-color: $mainLightBlue;
 }
+

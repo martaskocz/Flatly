@@ -1,0 +1,30 @@
+// paragraph
+
+%paragraph {
+  color: $mainDarkBlue;
+  font-family: "Quicksand", sans-serif;
+}
+
+.xs {
+  @extend %paragraph;
+  font-size: 1.2rem;
+  font-weight: $light;
+}
+
+.s {
+  @extend %paragraph;
+  font-size: 1.4rem;
+  font-weight: $regular;
+}
+
+.m {
+  @extend %paragraph;
+  font-size: 1.6rem;
+  font-weight: $semi-bold;
+}
+
+.l {
+  @extend %paragraph;
+  font-size: 1.8rem;
+  font-weight: $bold;
+}

@@ -10,6 +10,10 @@ const Root = () => (
     <BrowserRouter>
       <Switch>
         <Route exact component={Main} path={routes.root}/>
+        <Route exact component={Main} path={routes.spain}/>
+        <Route exact component={Main} path={routes.italy}/>
+        <Route exact component={Main} path={routes.portugal}/>
+        <Route exact component={Main} path={routes.croatia}/>
       </Switch>
     </BrowserRouter>
   </Provider>
