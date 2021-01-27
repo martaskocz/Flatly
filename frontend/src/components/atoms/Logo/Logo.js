@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Logo.module.scss';
-import icon from '../../../assets/images/logo.png'
 
-const Logo = ({ big, to }) => {
-  const classValue = classNames(styles.logo, { [styles.logoBig]: big });
+const Logo = ({ to }) => {
+  const classValue = classNames(styles.logo);
   return (
     <Link
       exact
-      aria-label="Save"
+      aria-label="Logo"
       className={classValue}
       to={to}
       type="button"
@@ -19,12 +18,7 @@ const Logo = ({ big, to }) => {
 };
 
 Logo.propTypes = {
-  big: PropTypes.bool,
   to: PropTypes.string.isRequired,
-};
-
-Logo.defaultProps = {
-  big: false
 };
 
 export default Logo;

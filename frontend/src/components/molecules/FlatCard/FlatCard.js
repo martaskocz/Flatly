@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BiBed } from 'react-icons/bi';
 import { BsHouseDoor } from 'react-icons/bs';
 import { IoPricetagsOutline, IoHeartOutline } from 'react-icons/io5';
 import Paragraph from '../../atoms/Paragraph/Paragraph';
 import styles from './FlatCard.module.scss';
 
-const FlatCard = ({propertyType, price, areaLiving, rooms, countryPL, city, image}) => {
+const FlatCard = ({areaLiving, city, countryPL, image, price, propertyType, rooms}) => {
 
   const priceTag = price.toLocaleString();
 
@@ -27,6 +28,16 @@ const FlatCard = ({propertyType, price, areaLiving, rooms, countryPL, city, imag
 
     </div>
   )
+};
+
+FlatCard.propTypes = {
+  propertyType: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  areaLiving: PropTypes.number.isRequired,
+  rooms: PropTypes.number.isRequired,
+  countryPL: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  image: PropTypes.node.isRequired
 };
 
 export default FlatCard;

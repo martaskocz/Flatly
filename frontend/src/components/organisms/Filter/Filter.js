@@ -2,14 +2,14 @@ import React from 'react';
 import { useDispatch } from "react-redux";
 import IconButton from '../../atoms/IconButton/IconButton';
 import styles from './Filter.module.scss';
-import { FETCH_ALL, FILTER_BY_COUNTRY } from "../../../state/actions";
+import { FETCH_ALL, FILTER_BY_COUNTRY, SORT_BY_PRICE_LOWEST, SORT_BY_PRICE_HIGHEST } from "../../../state/actions";
 import { routes } from '../../../routes';
 
 const countries = {
-  sp: 'spain',
+  es: 'spain',
   it: 'italy',
   pt: 'portugal',
-  cr: 'croatia'
+  hr: 'croatia'
 };
 
 const Filter = () => {
@@ -24,7 +24,16 @@ const Filter = () => {
       dispatch({type: FETCH_ALL})
     };
 
+    const sortByPriceLowest = () => {
+      dispatch({type: SORT_BY_PRICE_LOWEST});
+    };
+
+    const sortByPriceHighest = () => {
+      dispatch({type: SORT_BY_PRICE_HIGHEST});
+    };
+
     const {root, spain, italy, portugal, croatia} = routes;
+    const {es, it, pt, hr} = countries;
 
     return(
         <div className={styles.wrapper}>
@@ -34,29 +43,31 @@ const Filter = () => {
                 All
             </IconButton>
             <IconButton
-              country="Spain"
-              onClick={() => changeCountry(countries.sp)}
+              country={es}
+              onClick={() => changeCountry(es)}
               to={spain}>
                 Hiszpania
             </IconButton>
             <IconButton
-              country="Italy"
-              onClick={() => changeCountry(countries.it)}
+              country={it}
+              onClick={() => changeCountry(it)}
               to={italy}>
                 Włochy
             </IconButton>
             <IconButton
-              country="Portugal"
-              onClick={() => changeCountry(countries.pt)}
+              country={pt}
+              onClick={() => changeCountry(pt)}
               to={portugal}>
                 Portugalia
             </IconButton>
             <IconButton
-              country="Croatia"
-              onClick={() => changeCountry(countries.cr)}
+              country={hr}
+              onClick={() => changeCountry(hr)}
               to={croatia}>
                 Chorwacja
             </IconButton>
+          <button onClick={sortByPriceLowest} type="submit">sort by price low</button>
+          <button onClick={sortByPriceHighest} type="submit">sort by price high</button>
         </div>
     )
 };

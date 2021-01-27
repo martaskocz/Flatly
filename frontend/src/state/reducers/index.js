@@ -2,7 +2,9 @@ import Flat1 from "../../assets/images/flat1.jpeg";
 import Flat2 from "../../assets/images/flat2.jpeg";
 import {
     FETCH_ALL,
-    FILTER_BY_COUNTRY
+    FILTER_BY_COUNTRY,
+    SORT_BY_PRICE_LOWEST,
+    SORT_BY_PRICE_HIGHEST
 } from "../actions";
 
 const initialState = {
@@ -69,7 +71,7 @@ const initialState = {
             countryEN: 'Italy',
             city: 'Rzym',
             address: 'Gaudi Street 20',
-            coordinates: [41.190, 2.150],
+            coordinates: [41.892, 12.511],
             image: Flat1
         },
         {
@@ -82,7 +84,7 @@ const initialState = {
             countryEN: 'Italy',
             city: 'Neapol',
             address: 'Gaudi Street 20',
-            coordinates: [41.590, 2.153],
+            coordinates: [40.856, 14.246],
             image: Flat2
         },
         {
@@ -112,7 +114,9 @@ const initialState = {
             image: Flat2
         }
     ],
+    filteredFlats: [],
     activeCountry: 'europe',
+    all: true
 };
 
 const reducer = (state = initialState, action) => {
@@ -132,6 +136,22 @@ const reducer = (state = initialState, action) => {
                 filteredFlats: state.flats.filter((item) => item.countryEN.toLowerCase() === payload),
                 activeCountry: payload,
                 all: false
+            };
+        }
+        case SORT_BY_PRICE_LOWEST: {
+            console.log(state);
+            return {
+                ...state,
+                flats: state.flats.slice().sort((a,b) => a.price - b.price),
+                filteredFlats: state.filteredFlats.slice().sort((a,b) => a.price - b.price)
+            };
+        }
+        case SORT_BY_PRICE_HIGHEST: {
+            console.log(state);
+            return {
+                ...state,
+                flats: state.flats.slice().sort((a,b) => b.price - a.price),
+                filteredFlats: state.filteredFlats.slice().sort((a,b) => b.price - a.price)
             };
         }
         default:

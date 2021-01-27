@@ -1,17 +1,18 @@
 import React from 'react';
-import Logo from '../../atoms/Logo/Logo';
-import Paragraph from '../../atoms/Paragraph/Paragraph';
-import Link from '../../atoms/Link/Link';
 import { IconContext } from "react-icons";
 import { FaFacebookSquare, FaInstagram, FaLinkedin } from 'react-icons/fa'
 import { IoHeartOutline } from 'react-icons/io5';
+import Logo from '../../atoms/Logo/Logo';
+import Paragraph from '../../atoms/Paragraph/Paragraph';
+import Link from '../../atoms/Link/Link';
 import styles from './Header.modules.scss';
+import { routes } from '../../../routes';
 
 const Header = () => {
   return(
     <header className={styles.wrapper}>
       <div className={styles.wrapperLogoDesc}>
-        <Logo to="/"/>
+        <Logo to={routes.root} />
         <Paragraph margin="top" size="m" >zamieszkaj w dowolnym miejscu na świecie</Paragraph>
       </div>
       <Paragraph size="m"><IoHeartOutline color="#00C2CB" size="2.5rem"/> Ulubione</Paragraph>
@@ -23,9 +24,9 @@ const Header = () => {
         </IconContext.Provider>
       </div>
       <div>
-        <Link to="/oferty" size="m">Oferty</Link>
-        <Link to="/porady" size="m">Porady</Link>
-        <Link to="/kontakt" size="m">Kontakt</Link>
+        <Link size="m" to="/oferty">Oferty</Link>
+        <Link size="m" to="/porady">Porady</Link>
+        <Link size="m" to="/kontakt">Kontakt</Link>
       </div>
     </header>
   )
