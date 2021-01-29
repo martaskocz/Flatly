@@ -9,7 +9,6 @@ const Main = () => (
   <>
     <div className={styles.headerWrapper}>
       <Header/>
-      <span className={styles.span}/>
       <Filter/>
     </div>
     <div className={styles.adsWrapper}>

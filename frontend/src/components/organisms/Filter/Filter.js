@@ -4,6 +4,7 @@ import IconButton from '../../atoms/IconButton/IconButton';
 import styles from './Filter.module.scss';
 import { FETCH_ALL, FILTER_BY_COUNTRY, SORT_BY_PRICE_LOWEST, SORT_BY_PRICE_HIGHEST } from "../../../state/actions";
 import { routes } from '../../../routes';
+import Dropdown from "../../atoms/Dropdown/Dropdown";
 
 const countries = {
   es: 'spain',
@@ -68,6 +69,7 @@ const Filter = () => {
             </IconButton>
           <button onClick={sortByPriceLowest} type="submit">sort by price low</button>
           <button onClick={sortByPriceHighest} type="submit">sort by price high</button>
+          <Dropdown/>
         </div>
     )
 };
