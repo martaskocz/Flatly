@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 import IconButton from '../../atoms/IconButton/IconButton';
 import styles from './Filter.module.scss';
-import { FETCH_ALL, FILTER_BY_COUNTRY, SORT_BY_PRICE_LOWEST, SORT_BY_PRICE_HIGHEST } from "../../../state/actions";
+import {
+  FETCH_ALL,
+  FILTER_BY_COUNTRY,
+  SORT_BY_PRICE_LOWEST,
+  SORT_BY_PRICE_HIGHEST,
+  SELECT_DROPDOWN_VALUE
+} from "../../../state/actions";
 import { routes } from '../../../routes';
 import Dropdown from "../../atoms/Dropdown/Dropdown";
-
-const countries = {
-  es: 'spain',
-  it: 'italy',
-  pt: 'portugal',
-  hr: 'croatia'
-};
+import {countries, options, dropdownPlaceholder} from './constants';
 
 const Filter = () => {
 
@@ -25,12 +25,20 @@ const Filter = () => {
       dispatch({type: FETCH_ALL})
     };
 
-    const sortByPriceLowest = () => {
-      dispatch({type: SORT_BY_PRICE_LOWEST});
-    };
-
-    const sortByPriceHighest = () => {
-      dispatch({type: SORT_BY_PRICE_HIGHEST});
+    const [selectedOption, selectOption] = useState(null);
+    const handleChange = (item) => {
+      selectOption(item);
+      dispatch({type: SELECT_DROPDOWN_VALUE, payload: item});
+       switch(item.value){
+         case "lowestPrice":
+           dispatch({type: SORT_BY_PRICE_LOWEST});
+           break;
+         case 'highestPrice':
+           dispatch({type: SORT_BY_PRICE_HIGHEST});
+           break;
+         default:
+           dispatch({type: SELECT_DROPDOWN_VALUE, payload: item});
+       }
     };
 
     const {root, spain, italy, portugal, croatia} = routes;
@@ -67,9 +75,7 @@ const Filter = () => {
               to={croatia}>
                 Chorwacja
             </IconButton>
-          <button onClick={sortByPriceLowest} type="submit">sort by price low</button>
-          <button onClick={sortByPriceHighest} type="submit">sort by price high</button>
-          <Dropdown/>
+          <Dropdown onChange={handleChange} options={options} placeholder={dropdownPlaceholder} value={selectedOption}/>
         </div>
     )
 };

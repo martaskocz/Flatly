@@ -1,40 +1,56 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 import styles from './Dropdown.module.scss';
 
-const options = [
-  {value: 'lowestPrice', label: 'najniższa cena'},
-  {value: 'highestPrice', label: 'najwyzsza cena'}
-];
-
 const customStyles = {
+  placeholder: () => ({
+    color: '#4c627b'
+  }),
   option: (provided, state) => ({
     ...provided,
-    color: state.isSelected ? 'red' : 'blue',
-    padding: 20,
+    color: '#4c627b',
+    backgroundColor: state.isSelected ? '#e6e6e6' : 'white',
+    padding: 10,
   }),
   control: () => ({
-    // none of react-select's styles are passed to <Control />
-    width: 300,
+    display: 'flex',
+    color: '#4c627b',
   }),
-  singleValue: (provided, state) => {
-    const opacity = state.isDisabled ? 0.5 : 1;
-    const transition = 'opacity 300ms';
+  singleValue: (provided, state) => ({
+    ...provided,
+    opacity: state.isDisabled ? 0.5 : 1,
+    transition: 'opacity 800ms',
+    color: '#4c627b'
+  })
+};
 
-    return { ...provided, opacity, transition };
-  }
-}
-
-
-const Dropdown = () => {
-  return (
+const Dropdown = ({onChange, options, placeholder, value}) => (
     <Select
       className={styles.select}
+      onChange={onChange}
       options={options}
-      placeholder="sortuj"
+      placeholder={placeholder}
       styles={customStyles}
+      value={value}
     />
-  )
+);
+
+Dropdown.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+      label: PropTypes.string
+    })
+  ).isRequired,
+  placeholder: PropTypes.string,
+  value: PropTypes.string
+};
+
+Dropdown.defaultProps = {
+  placeholder: 'sort',
+  value: null
 };
 
 export default Dropdown;

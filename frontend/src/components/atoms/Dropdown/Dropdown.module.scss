@@ -1,3 +1,9 @@
+@import 'src/assets/styles/main.module';
+
 .select {
   width: 18rem;
+  color: $mainDarkBlue;
+  font-size: 1.6rem;
+  font-family: "Quicksand", sans-serif;
+  font-weight: $semi-bold;
 }

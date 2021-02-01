@@ -23,7 +23,7 @@ const Paragraph = ({children, margin, size}) => {
 };
 
 Paragraph.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
   margin: PropTypes.string,
   size: PropTypes.string
 };

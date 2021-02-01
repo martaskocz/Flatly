@@ -4,7 +4,8 @@ import {
     FETCH_ALL,
     FILTER_BY_COUNTRY,
     SORT_BY_PRICE_LOWEST,
-    SORT_BY_PRICE_HIGHEST
+    SORT_BY_PRICE_HIGHEST,
+    SELECT_DROPDOWN_VALUE
 } from "../actions";
 
 const initialState = {
@@ -153,6 +154,12 @@ const reducer = (state = initialState, action) => {
                 flats: state.flats.slice().sort((a,b) => b.price - a.price),
                 filteredFlats: state.filteredFlats.slice().sort((a,b) => b.price - a.price)
             };
+        }
+        case SELECT_DROPDOWN_VALUE: {
+            return {
+                ...state,
+                selectedOption: payload.value
+            }
         }
         default:
             return state

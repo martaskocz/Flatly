@@ -24,7 +24,7 @@ const Map = () => {
       />
       <SetView center={location[activeCountry]} zoom={zoom[activeCountry]}/>
       {flats.map(flat => (
-        <Marker icon={flatlyIcon} position={flat.coordinates}>
+        <Marker icon={flatlyIcon} position={flat.coordinates} key={flat.id}>
           <Tooltip>
             {flat.price}
           </Tooltip>

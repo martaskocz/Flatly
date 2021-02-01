@@ -2,6 +2,7 @@ export const FETCH_ALL = 'FETCH_ALL';
 export const FILTER_BY_COUNTRY = 'FILTER_BY_COUNTRY';
 export const SORT_BY_PRICE_LOWEST = 'SORT_BY_PRICE_LOWEST';
 export const SORT_BY_PRICE_HIGHEST = 'SORT_BY_PRICE_HIGHEST';
+export const SELECT_DROPDOWN_VALUE = 'SELECT_DROPDOWN_VALUE';
 
 export const fetchAll = () => (
   {
@@ -25,5 +26,12 @@ export const sortByPriceLowest = () => (
 export const sortByPriceHighest = () => (
   {
     type: SORT_BY_PRICE_HIGHEST
+  }
+);
+
+export const selectDropdownValue = (selectedOption) => (
+  {
+    type: SELECT_DROPDOWN_VALUE,
+    payload: selectedOption
   }
 );
