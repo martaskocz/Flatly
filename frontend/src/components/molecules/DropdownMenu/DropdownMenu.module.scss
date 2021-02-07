@@ -1,0 +1,155 @@
+@import 'src/assets/styles/main.module';
+
+.container {
+  position: relative;
+}
+
+.list {
+  background: $white;
+  border-radius: 8px;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 25rem;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .link {
+      font-weight: $semi-bold;
+      border-bottom: 1px solid $grey200;
+      text-decoration: none;
+      color: $mainDarkBlue;
+      padding: 15px 20px;
+      display: block;
+
+      &:hover {
+        background-color: $mainLightBlue;
+      }
+
+      &:first-child:hover{
+        background-color: $mainLightBlue;
+        border-radius: 8px 8px 0 0;
+      }
+
+      &:last-child:hover {
+        background-color: $mainLightBlue;
+        border-radius: 0 0 8px 8px;
+      }
+    }
+  }
+}
+
+.activeList {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+//HAMBURGER
+
+.hamburger {
+  transform: scale(0.9, 0.9);
+  padding: 4px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 25px 0 0 25px;
+  overflow: visible;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.hamburger:hover {
+  opacity: 1;
+}
+
+.all {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.first {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+
+.first,
+.first::before,
+.first::after {
+  width: 40px;
+  height: 4px;
+  background-color: $mainDarkBlue;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
+.first::before,
+.first::after {
+  content: '';
+  display: block;
+}
+
+.first::before {
+  top: -10px;
+}
+
+.first::after {
+  bottom: -10px;
+}
+
+.hamburger .first {
+  top: 2px;
+  transition: background-color 0s 0.13s linear;
+}
+
+.hamburger .first::before {
+  top: 10px;
+  transition: top 0.1s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
+  transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger .first::after {
+  top: 20px;
+  transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
+  transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.hamburger.active .first {
+  transition-delay: 0.22s;
+  background-color: transparent;
+}
+
+.hamburger.active .first::before {
+  top: 0;
+  transition: top 0.1s 0.15s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+  transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+
+.hamburger.active .first::after {
+  top: 0;
+  transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+  transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: translate3d(0, 10px, 0) rotate(-45deg);
+}

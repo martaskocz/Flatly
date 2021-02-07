@@ -4,9 +4,10 @@ import { FaFacebookSquare, FaInstagram, FaLinkedin } from 'react-icons/fa'
 import { IoHeartOutline } from 'react-icons/io5';
 import Logo from '../../atoms/Logo/Logo';
 import Paragraph from '../../atoms/Paragraph/Paragraph';
-import Link from '../../atoms/Link/Link';
 import styles from './Header.modules.scss';
 import { routes } from '../../../routes';
+import DropdownMenu from "../../molecules/DropdownMenu/DropdownMenu";
+import { navLinks } from "./constants";
 
 const Header = () => {
   return(
@@ -23,11 +24,7 @@ const Header = () => {
           <FaLinkedin/>
         </IconContext.Provider>
       </div>
-      <div>
-        <Link size="m" to="/oferty">Oferty</Link>
-        <Link size="m" to="/porady">Porady</Link>
-        <Link size="m" to="/kontakt">Kontakt</Link>
-      </div>
+      <DropdownMenu navLinks={navLinks}/>
     </header>
   )
 };

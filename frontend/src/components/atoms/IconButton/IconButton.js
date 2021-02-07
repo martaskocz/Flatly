@@ -10,7 +10,7 @@ const IconButton = ({country, children, to, onClick}) => {
   const classNavLink = classNames([styles.wrapper, styles.m]);
 
   return(
-    <NavLink exact activeClassName={styles.active} className={classNavLink} onClick={onClick} to={{pathname: to}} type="submit">
+    <NavLink exact activeClassName={styles.active} className={classNavLink} onClick={onClick} to={{pathname: to}} type="button">
       <SVG classNames={styles.icon} height={14} src={`assets/${country}.svg`} width={28} />
       <span>{children}</span>
     </NavLink>

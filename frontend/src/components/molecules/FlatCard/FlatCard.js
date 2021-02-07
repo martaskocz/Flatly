@@ -18,7 +18,7 @@ const FlatCard = ({areaLiving, city, countryPL, image, price, propertyType, room
         <div>
           <Paragraph>{propertyType}</Paragraph>
           <Paragraph size="s">{countryPL}, {city}</Paragraph>
-          <Paragraph margin="top" size="l"><IoPricetagsOutline/>  {priceTag} zł</Paragraph>
+          <Paragraph margin="top" size="l"><IoPricetagsOutline/>  {priceTag} €</Paragraph>
         </div>
         <div>
           <Paragraph size="s"><BsHouseDoor/>  {areaLiving} m2</Paragraph>

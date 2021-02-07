@@ -7,11 +7,16 @@ import {
   FILTER_BY_COUNTRY,
   SORT_BY_PRICE_LOWEST,
   SORT_BY_PRICE_HIGHEST,
-  SELECT_DROPDOWN_VALUE
+  SELECT_DROPDOWN_VALUE, FILTER_BY_PRICE_THRESHOLD
 } from "../../../state/actions";
 import { routes } from '../../../routes';
 import Dropdown from "../../atoms/Dropdown/Dropdown";
 import {countries, options, dropdownPlaceholder} from './constants';
+
+
+/*
+URL: flatly.in/country/propertyType/
+ */
 
 const Filter = () => {
 
@@ -26,7 +31,7 @@ const Filter = () => {
     };
 
     const [selectedOption, selectOption] = useState(null);
-    const handleChange = (item) => {
+    const handleSort = (item) => {
       selectOption(item);
       dispatch({type: SELECT_DROPDOWN_VALUE, payload: item});
        switch(item.value){
@@ -41,41 +46,52 @@ const Filter = () => {
        }
     };
 
+    const changePriceThreshold = (price) => {
+      dispatch({type: FILTER_BY_PRICE_THRESHOLD, payload: price})
+    };
+
     const {root, spain, italy, portugal, croatia} = routes;
     const {es, it, pt, hr} = countries;
 
     return(
         <div className={styles.wrapper}>
+          <div className={styles.wrapperFirstLine}>
             <IconButton
               onClick={displayAll}
               to={root}>
-                All
+              All
             </IconButton>
             <IconButton
               country={es}
               onClick={() => changeCountry(es)}
               to={spain}>
-                Hiszpania
+              Hiszpania
             </IconButton>
             <IconButton
               country={it}
               onClick={() => changeCountry(it)}
               to={italy}>
-                Włochy
+              Włochy
             </IconButton>
             <IconButton
               country={pt}
               onClick={() => changeCountry(pt)}
               to={portugal}>
-                Portugalia
+              Portugalia
             </IconButton>
             <IconButton
               country={hr}
               onClick={() => changeCountry(hr)}
               to={croatia}>
-                Chorwacja
+              Chorwacja
             </IconButton>
-          <Dropdown onChange={handleChange} options={options} placeholder={dropdownPlaceholder} value={selectedOption}/>
+            <Dropdown onChange={handleSort} options={options} placeholder={dropdownPlaceholder} value={selectedOption}/>
+          </div>
+          <div>
+            <IconButton onClick={() => changePriceThreshold(300000)} to='/a'>{`< 300k €`}</IconButton>
+            <IconButton onClick={() => changePriceThreshold(400000)} to='/a'>{`< 400k €`}</IconButton>
+            <IconButton onClick={() => changePriceThreshold(500000)} to='/a'>{`< 500k €`}</IconButton>
+          </div>
         </div>
     )
 };

@@ -7,8 +7,7 @@ export const SetView = ({center, zoom}) => {
 };
 
 // country zoom & GPS coordinates
-
-const europe = [52.577, 17.106];
+const europe = [52.577, 14.500];
 const spain = [40.416, -3.703];
 const italy = [41.903, 12.496];
 const portugal = [39.557, -7.853];

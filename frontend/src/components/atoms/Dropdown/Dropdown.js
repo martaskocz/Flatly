@@ -28,6 +28,7 @@ const customStyles = {
 const Dropdown = ({onChange, options, placeholder, value}) => (
     <Select
       className={styles.select}
+      isSearchable={false}
       onChange={onChange}
       options={options}
       placeholder={placeholder}
